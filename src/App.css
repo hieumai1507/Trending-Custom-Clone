@@ -1,0 +1,200 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  text-transform: none;
+  line-height: 1.2em;
+}
+p {
+  margin-bottom: 0;
+  display: inline;
+  line-height: 1;
+}
+p {
+  margin: 0 0 15px;
+  font-style: normal;
+}
+body.collection h1,
+body.collection h1 a,
+body.collection h2,
+body.collection h2 a,
+body.collection h3,
+body.collection h3 a,
+body.collection h4,
+body.collection h4 a,
+body.collection h5,
+body.collection h5 a,
+body.collection h6,
+body.collection h6 a,
+body.collection #nav li a,
+body.collection div.title a,
+body.collection .headline,
+body.collection .subtitle,
+body.collection a,
+body.collection p,
+body.collection span,
+body.collection b,
+body.collection strong,
+body.collection i,
+body.collection em,
+body.collection input,
+body.collection select,
+body.collection button,
+body.collection small,
+body.collection label,
+body.page-search-result h1,
+body.page-search-result h1 a,
+body.page-search-result h2,
+body.page-search-result h2 a,
+body.page-search-result h3,
+body.page-search-result h3 a,
+body.page-search-result h4,
+body.page-search-result h4 a,
+body.page-search-result h5,
+body.page-search-result h5 a,
+body.page-search-result h6,
+body.page-search-result h6 a,
+body.page-search-result #nav li a,
+body.page-search-result div.title a,
+body.page-search-result .headline,
+body.page-search-result .subtitle,
+body.page-search-result a,
+body.page-search-result p,
+body.page-search-result span,
+body.page-search-result b,
+body.page-search-result strong,
+body.page-search-result i,
+body.page-search-result em,
+body.page-search-result input,
+body.page-search-result select,
+body.page-search-result button,
+body.page-search-result small,
+body.page-search-result label {
+  font-family: DM Sans, sans-serif !important;
+  letter-spacing: normal;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.header a,
+.header a:visited,
+.header a span,
+.header select.currencies {
+  color: #0d0c22;
+  text-shadow: none;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label,
+summary {
+  touch-action: manipulation;
+}
+input {
+  border-radius: 4px;
+  border: 2px solid #222;
+  padding: 12px 98px 12px 18px;
+  font-size: 16px;
+  height: 48px;
+  font-weight: 500;
+  line-height: 24px;
+  caret-color: #f13c20;
+  color: #222;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="range"],
+input[type="color"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 15px;
+  outline: none;
+  background: #fff;
+  text-rendering: optimizeLegibility;
+}
+img {
+  border: 0;
+}
+select {
+  width: 72px;
+  padding: 0;
+  border-radius: 5px;
+  background-image: url(https://trendingcustom.com/cdn/shop/t/57/assets/caret-down.svg?v=180333747006268958561684321062);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #fff;
+  background-position-x: 64px;
+  text-align: center;
+  margin-left: 4px;
+}
+option {
+  color: #0d0c22;
+  font-weight: normal;
+  padding-block-start: 0px;
+  padding-block-end: 1px;
+  max-block-size: 1.2em;
+  padding-inline: 2px;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+ul {
+  display: flex;
+  justify-content: center; /* Căn giữa các mục */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Xóa dấu chấm */
+  border: none;
+}
+
+.gift-finder {
+  color: #f1641e !important;
+}

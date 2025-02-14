@@ -1,0 +1,78 @@
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  text-transform: none;
+  color: #0d0c22;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+}
+p {
+  margin-bottom: 0;
+  display: inline;
+  line-height: 1;
+}
+p {
+  margin: 0 0 15px;
+  font-style: normal;
+}
+body.collection h1,
+body.collection h1 a,
+body.collection h2,
+body.collection h2 a,
+body.collection h3,
+body.collection h3 a,
+body.collection h4,
+body.collection h4 a,
+body.collection h5,
+body.collection h5 a,
+body.collection h6,
+body.collection h6 a,
+body.collection #nav li a,
+body.collection div.title a,
+body.collection .headline,
+body.collection .subtitle,
+body.collection a,
+body.collection p,
+body.collection span,
+body.collection b,
+body.collection strong,
+body.collection i,
+body.collection em,
+body.collection input,
+body.collection select,
+body.collection button,
+body.collection small,
+body.collection label,
+body.page-search-result h1,
+body.page-search-result h1 a,
+body.page-search-result h2,
+body.page-search-result h2 a,
+body.page-search-result h3,
+body.page-search-result h3 a,
+body.page-search-result h4,
+body.page-search-result h4 a,
+body.page-search-result h5,
+body.page-search-result h5 a,
+body.page-search-result h6,
+body.page-search-result h6 a,
+body.page-search-result #nav li a,
+body.page-search-result div.title a,
+body.page-search-result .headline,
+body.page-search-result .subtitle,
+body.page-search-result a,
+body.page-search-result p,
+body.page-search-result span,
+body.page-search-result b,
+body.page-search-result strong,
+body.page-search-result i,
+body.page-search-result em,
+body.page-search-result input,
+body.page-search-result select,
+body.page-search-result button,
+body.page-search-result small,
+body.page-search-result label {
+  font-family: DM Sans, sans-serif !important;
+  letter-spacing: normal;
+}
