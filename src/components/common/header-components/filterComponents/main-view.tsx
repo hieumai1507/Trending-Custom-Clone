@@ -7,6 +7,7 @@ import type { CustomPriceRange } from "@/types/filter";
 import { SectionHeader } from "./section-header";
 import { PriceSection } from "./price-section";
 import { ShippingSection } from "./shipping-section";
+import { COMMON } from "@/constants/textConstant";
 
 interface MainViewProps {
   selectedOccasions: number[];
@@ -59,13 +60,13 @@ export function MainView({
         <div>
           <SectionHeader title="Filters" />
           <div className="space-y-4">
-            <p className="text-base font-bold">Filter by product</p>
+            <p className="text-base font-bold">{COMMON.FILTER_BY_PRODUCT}</p>
             <Button
               variant="outline"
               className="w-full justify-between"
               onClick={onViewProducts}
             >
-              All Products
+              {COMMON.ALL_PRODUCTS}
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
@@ -85,7 +86,7 @@ export function MainView({
               className="mt-2 p-0 text-sm"
               onClick={onExpandOccasions}
             >
-              See More
+              {COMMON.SEE_MORE}
               <ChevronDown className="ml-1 h-4 w-4" />
             </Button>
           ) : (
@@ -94,7 +95,7 @@ export function MainView({
               className="mt-2 p-0 text-sm"
               onClick={onViewOccasions}
             >
-              See All
+              {COMMON.SEE_ALL}
               <ChevronDown className="ml-1 h-4 w-4" />
             </Button>
           )}
@@ -114,7 +115,7 @@ export function MainView({
               className="mt-2 p-0 text-sm"
               onClick={onExpandRecipients}
             >
-              See More
+              {COMMON.SEE_MORE}
               <ChevronDown className="ml-1 h-4 w-4" />
             </Button>
           ) : (
@@ -123,7 +124,7 @@ export function MainView({
               className="mt-2 p-0 text-sm"
               onClick={onViewRecipients}
             >
-              See All
+              {COMMON.SEE_ALL}
               <ChevronDown className="ml-1 h-4 w-4" />
             </Button>
           )}

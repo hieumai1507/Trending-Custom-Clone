@@ -1,3 +1,5 @@
+import { COMMON } from "@/constants/textConstant";
+
 export default function TitleWrapper() {
   return (
     <div>
@@ -9,7 +11,7 @@ export default function TitleWrapper() {
       >
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-            Best Sellers
+            {COMMON.BEST_SELLERS}
           </h1>
           <p className="mx-auto max-w-2xl text-gray-600">
             Find the perfect personalized gift for your loved ones on our Best

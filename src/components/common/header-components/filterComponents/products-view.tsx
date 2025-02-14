@@ -2,6 +2,7 @@ import { CategoryGrid } from "./category-grid";
 import { ActionButtons } from "./action-buttons";
 import { productTypes } from "@/constants/filter-data";
 import { ViewHeader } from "./view-header";
+import { COMMON } from "@/constants/textConstant";
 
 interface ProductsViewProps {
   selectedProducts: number[];
@@ -26,7 +27,11 @@ export function ProductsView({
         />
       </div>
 
-      <ActionButtons onCancel={onBack} onApply={onBack} cancelText="Back" />
+      <ActionButtons
+        onCancel={onBack}
+        onApply={onBack}
+        cancelText={COMMON.BACK}
+      />
     </div>
   );
 }

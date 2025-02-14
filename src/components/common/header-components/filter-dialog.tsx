@@ -7,6 +7,7 @@ import { MainView } from "./filterComponents/main-view";
 import { OccasionsView } from "./filterComponents/occasions-view";
 import { RecipientsView } from "./filterComponents/recipients-view";
 import { ProductsView } from "./filterComponents/products-view";
+import { COMMON } from "@/constants/textConstant";
 
 interface FilterDialogProps {
   isOpen: boolean;
@@ -101,7 +102,7 @@ export function FilterDialog({ isOpen, onClose }: FilterDialogProps) {
           />
         )}
 
-        {view === "occasions" && (
+        {view === COMMON.OCCASIONS && (
           <OccasionsView
             selectedOccasions={selectedOccasions}
             onOccasionSelect={handleOccasionSelect}
@@ -109,7 +110,7 @@ export function FilterDialog({ isOpen, onClose }: FilterDialogProps) {
           />
         )}
 
-        {view === "recipients" && (
+        {view === COMMON.RECIPIENTS && (
           <RecipientsView
             selectedRecipients={selectedRecipients}
             onRecipientSelect={handleRecipientSelect}
@@ -117,7 +118,7 @@ export function FilterDialog({ isOpen, onClose }: FilterDialogProps) {
           />
         )}
 
-        {view === "products" && (
+        {view === COMMON.PRODUCTS && (
           <ProductsView
             onBack={() => setView("main")}
             selectedProducts={selectedProducts}

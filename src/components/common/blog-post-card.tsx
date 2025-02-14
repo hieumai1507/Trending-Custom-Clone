@@ -4,6 +4,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { COMMON } from "@/constants/textConstant";
 
 interface BlogPostCardProps {
   post: {
@@ -41,7 +42,7 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
           href={`/blog/${post.slug}`}
           className="text-sm font-medium text-teal-600 hover:text-teal-700"
         >
-          Read More
+          {COMMON.READ_MORE}
         </a>
       </CardFooter>
     </Card>

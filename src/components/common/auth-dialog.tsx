@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
+import { COMMON } from "@/constants/textConstant";
 
 interface AuthDialogProps {
   isOpen: boolean;
@@ -139,14 +140,14 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             </Button>
           </div>
           {!isSignIn && (
-            <p className="text-sm text-gray-600">Registration is easy.</p>
+            <p className="text-sm text-gray-600">{COMMON.EASY_REGISTRATION}</p>
           )}
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">
-              Email Address{" "}
+              {COMMON.EMAIL_ADDRESS}{" "}
               {!isSignIn && <span className="text-red-500">*</span>}
             </Label>
             <Input
@@ -169,7 +170,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             <>
               <div className="space-y-2">
                 <Label htmlFor="firstName">
-                  First Name <span className="text-red-500">*</span>
+                  {COMMON.FIRST_NAME} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="firstName"
@@ -187,7 +188,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name</Label>
+                <Label htmlFor="lastName">{COMMON.LAST_NAME}</Label>
                 <Input
                   id="lastName"
                   name="lastName"
@@ -202,7 +203,8 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label htmlFor="password">
-                Password {!isSignIn && <span className="text-red-500">*</span>}
+                {COMMON.PASSWORD}{" "}
+                {!isSignIn && <span className="text-red-500">*</span>}
               </Label>
               {isSignIn && (
                 <Button
@@ -213,7 +215,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                     // Handle forgot password
                   }}
                 >
-                  Forgot password?
+                  {COMMON.FORGOT_PASSWORD}
                 </Button>
               )}
             </div>
@@ -240,7 +242,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
               onCheckedChange={(checked) => setShowPassword(checked as boolean)}
             />
             <Label htmlFor="showPassword" className="text-sm font-normal">
-              Show Password
+              {COMMON.SHOW_PASSWORD}
             </Label>
           </div>
 
@@ -257,7 +259,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-white px-2 text-gray-500">
-                Or {isSignIn ? "login" : "register"} with
+                {COMMON.OR} {isSignIn ? "login" : "register"} {COMMON.WITH}
               </span>
             </div>
           </div>
@@ -277,7 +279,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                 alt="Google"
                 className="mr-2 h-8 w-8"
               />
-              Continue with Google
+              {COMMON.CONTINUE_WITH_GOOGLE}
             </Button>
             <Button
               type="button"
@@ -292,7 +294,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                 alt="Facebook"
                 className="mr-2 h-8 w-8"
               />
-              Continue with Facebook
+              {COMMON.CONTINUE_WITH_FACEBOOK}
             </Button>
           </div>
 
@@ -300,11 +302,11 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             By clicking Sign in or Continue with Google, Facebook, you agree to
             Trendingcustom{" "}
             <a href="/terms" className="underline">
-              Terms of Use
+              {COMMON.TERM_OF_USE}
             </a>{" "}
             and{" "}
             <a href="/pages/privacy-policy" className="underline">
-              Privacy Policy
+              {COMMON.PRIVACY_POLICY}
             </a>
             . Trendingcustom may send you communications; you may change your
             preferences in your account settings. We'll never post without your

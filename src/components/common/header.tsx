@@ -6,6 +6,7 @@ import TitleWrapper from "./header-components/title-wrapper";
 import { SortDropdown } from "./header-components/sortComponents/sort-dropdown";
 import { SortTabs } from "./header-components/sortComponents/sort-tabs";
 import { FilterDialog } from "./header-components/filter-dialog";
+import { COMMON } from "@/constants/textConstant";
 
 export default function FilterAndSortHeader() {
   const [isFilterOpen, setIsFilterOpen] = React.useState(false);
@@ -23,7 +24,7 @@ export default function FilterAndSortHeader() {
             onClick={() => setIsFilterOpen(true)}
           >
             <SlidersHorizontal className="h-4 w-4" />
-            Filters
+            {COMMON.FILTERS}
           </Button>
           <div className="flex items-center">
             <SortDropdown value={sortValue} onValueChange={setSortValue} />
