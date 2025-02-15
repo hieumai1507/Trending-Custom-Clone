@@ -1,10 +1,9 @@
+// product-card.tsx
 "use client";
 
 import { Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PriceSection } from "./price-section";
-import { Rating } from "./rating";
-import { Tag } from "./tag";
 import { useState } from "react";
 import { PreviewModal } from "./preview-modal";
 import { Link } from "react-router-dom";
@@ -17,19 +16,19 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
-  const productImages = [product.image];
+  const productImages = [product.sku_image]; // Use sku_image
 
   return (
     <>
-      <div className="group relative flex flex-col">
+      <div className="group relative flex flex-col ml-2 mb-2 border border-[#e9f0ff] rounded-bl-md rounded-br-md pb-4 ">
         <Link
-          to={`/products/${product.name}?id=${product.id}`}
+          to={`/products/${product.product_name}?id=${product.product_id}`}
           className="relative aspect-square overflow-hidden rounded-lg"
         >
           <img
-            src={product.image || "/placeholder.svg"}
-            alt={product.title}
-            className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+            src={product.sku_image || "/placeholder.svg"}
+            alt={product.product_name}
+            className="w-full h-auto aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <Button
             size="icon"
@@ -45,21 +44,17 @@ export function ProductCard({ product }: ProductCardProps) {
         </Link>
 
         <div className="mt-4 flex flex-col gap-2">
-          <Link to={`/products/${product.title}`}>
+          <Link
+            to={`/products/${product.product_name}?id=${product.product_id}`}
+          >
             <h3 className="text-[16px] font-medium truncate">
-              {product.title}
+              {product.product_name}
             </h3>
           </Link>
-
           <PriceSection
-            currentPrice={product.currentPrice}
-            originalPrice={product.originalPrice}
-            discount={product.discount}
+            currentPrice={parseFloat(product.sale_price)} // Ép kiểu về number
+            originalPrice={parseFloat(product.original_price)} // Ép kiểu về number
           />
-
-          <Rating rating={product.rating} reviews={product.reviews} />
-
-          {product.tag && <Tag type={product.tag} />}
         </div>
       </div>
 
@@ -67,11 +62,11 @@ export function ProductCard({ product }: ProductCardProps) {
         isOpen={isPreviewOpen}
         onClose={() => setIsPreviewOpen(false)}
         images={productImages}
-        productTitle={product.title}
-        productId={product.id}
+        productTitle={product.product_name}
+        productId={product.product_id}
         onViewProduct={() => {
           // Handle view product action
-          console.log("View product:", product.id);
+          console.log("View product:", product.product_id);
         }}
       />
     </>

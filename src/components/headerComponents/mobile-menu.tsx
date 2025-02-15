@@ -368,7 +368,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
               <Button
                 key={key}
                 variant="ghost"
-                className="w-full justify-between"
+                className="w-full justify-between text-[16px] ml-0"
                 onClick={() => setCurrentMenu(key)}
               >
                 {section.title}
@@ -394,20 +394,20 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
           </div>
 
           <div className="py-2">
-            <h3 className="font-semibold mb-2">By TrendingCustom</h3>
+            <h3 className="font-semibold mb-2">By IAN P GREINER LLC</h3>
             <a href="/shipping" className="block py-1">
               Shipping Info
             </a>
-            <a href="/contact" className="block py-1">
+            <a href="/pages/contact-us" className="block py-1">
               Contact Us
             </a>
-            <a href="/help" className="block py-1">
+            <a href="/pages/faqs" className="block py-1">
               Help Center
             </a>
             <a href="/about" className="block py-1">
               About Us
             </a>
-            <a href="/blog" className="block py-1">
+            <a href="/blogs/our-blog" className="block py-1">
               Our Blog
             </a>
           </div>
@@ -464,7 +464,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
           </div>
 
           <p className="text-sm text-gray-500 pt-4">
-            © 2025 TrendingCustom™. Powered by Shopify
+            © 2025 IAN P GREINER LLC LLC. Powered by Shopify
           </p>
         </div>
       </ScrollArea>

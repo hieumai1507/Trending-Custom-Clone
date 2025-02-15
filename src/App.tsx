@@ -19,6 +19,9 @@ import IntellectualPropertyClaim from "./components/shopping-view/pages/policies
 import HelpCenter from "./components/shopping-view/pages/help/help-center";
 import PageTitle from "./components/common/pageTitle";
 import ContactUs from "./components/shopping-view/pages/help/contact-us";
+import Blogs from "./pages/shopping-view/Blogs";
+import OurBlog from "./components/shopping-view/blogs/our-blog";
+import MyWishList from "./components/shopping-view/pages/my-wishlist";
 
 function App() {
   useEffect(() => {
@@ -39,6 +42,8 @@ function App() {
             <Route path="new-arrivals" element={<NewArrivals />} />
           </Route>
           <Route path="/pages" element={<ShoppingPages />}>
+            <Route path="my-wishlist" element={<MyWishList />} />
+
             <Route path="tracking-order" element={<TrackingOrder />} />
             {/* Policies */}
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -55,6 +60,9 @@ function App() {
             {/* Help */}
             <Route path="faqs" element={<HelpCenter />} />
             <Route path="contact-us" element={<ContactUs />} />
+          </Route>
+          <Route path="/blogs" element={<Blogs />}>
+            <Route path="our-blog" element={<OurBlog />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

@@ -34,8 +34,8 @@ export const faqData: FaqItem[] = [
         imageSrc: "https://i.imgur.com/sKEiFQV.png",
         imageAlt: "Shipping Information",
       },
-      "Besides, visit our Shipping Policy to check the estimated production and shipping time for a specific item: https://trendingcustom.com/pages/shipping-policy. We strive to fulfill orders as quickly as possible and provide regular updates on the progress of your shipment.",
-      "To get an accurate estimate for your specific order, we recommend visiting our tracking page. Simply go to 'Track order' on TrendingCustom.com and enter your order number and email address. You'll be able to view all the details related to your order, including the estimated shipping time.",
+      "Besides, visit our Shipping Policy to check the estimated production and shipping time for a specific item: https:// firefightershop.org/pages/shipping-policy. We strive to fulfill orders as quickly as possible and provide regular updates on the progress of your shipment.",
+      "To get an accurate estimate for your specific order, we recommend visiting our tracking page. Simply go to 'Track order' on  firefightershop.org and enter your order number and email address. You'll be able to view all the details related to your order, including the estimated shipping time.",
       "If you require any further assistance or information, please don't hesitate to contact us. We're here to help!",
     ],
   },
@@ -43,7 +43,7 @@ export const faqData: FaqItem[] = [
     id: "2",
     question: "How are my shirts sized?",
     answer: [
-      "At present, we offer a variety of shirt types, including Classic Tee, Women's Tee, Sweatshirt, Hoodie, etc. All our shirts are pre-shrunk and available in American sizes. You can visit our size chart here to get more details: https://trendingcustom.com/pages/size-chart.",
+      "At present, we offer a variety of shirt types, including Classic Tee, Women's Tee, Sweatshirt, Hoodie, etc. All our shirts are pre-shrunk and available in American sizes. You can visit our size chart here to get more details: https:// firefightershop.org/pages/size-chart.",
       "Please note that there might be a ±1.0 inches difference due to manual measurement and production processes.",
     ],
   },
@@ -102,36 +102,16 @@ export const faqData: FaqItem[] = [
       "After you have selected the item(s) you'd like to purchase, please proceed to the checkout page",
       "1. ON MOBILE BROWSER",
       " Fill out all shipping information > Click Continue Shipping",
-      {
-        imageSrc:
-          "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/151058123080/original/e-WypGHTL2oERSwa_QLnwESmxfAX0x8nFQ.png?1704861618", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "Continue Shipping mobile",
-      },
+
       " Review your order details and click Continue to Payment",
-      {
-        imageSrc:
-          "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/151058123302/original/qUtqeMGYYbGWQ4aT8_KVtPcpT-o61HwBHQ.png?1704861709", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "Continue to payment mobile",
-      },
+
       " Enter the coupon/discount code in the discount code box. Click the green arrow next to the box to check if the code is accepted.",
-      {
-        imageSrc:
-          "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/151058123375/original/VJd-XJek7yuOBZC6iEatu3K28a2V_lao2A.png?1704861764", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "Enter discount code mobile",
-      },
+
       " You can also check the order summary at the top of the page again to see if your total reflects the applied discount.",
-      {
-        imageSrc:
-          "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/151058123438/original/P19rWNOGmAuomvxkJ6ADPzUT1s9psfwAXA.png?1704861795", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "hide order summary mobile",
-      },
+
       "2. ON COMPUTER/LAPTOP BROWSER",
       "On the Cart page, choose Secure Checkout, you will see the below page. You can enter the discount code in the instructed box > Click Apply.",
-      {
-        imageSrc:
-          "https://scontent.fhan14-5.fna.fbcdn.net/v/t1.15752-9/476225661_1822089221884045_3058520834435120067_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=mEpDJVA1AC8Q7kNvgFEXAJm&_nc_oc=Adg-8BSYpzox6shtWEUN8v2f-nIswvSIPR3jObpP5hBfM1aYO1H20eg4JJ1yq6Y2jHQ&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&oh=03_Q7cD1gFw3Ef8Z-min8t3biBkAx25_YvxJOJG6-l2vS7_4R-vlg&oe=67D5204C", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "discount code desktop",
-      },
+
       "Click Continue to shipping once you're sure that the total price reflects the applied discount.",
     ],
   },
@@ -147,7 +127,7 @@ export const faqData: FaqItem[] = [
           "Apple Pay is currently available, but it is only visible when you use Safari on iPhone, iPad or Mac.",
         ],
       },
-      "You can click on the link below to get more information: https://trendingcustom.com/pages/paymentmethods",
+      "You can click on the link below to get more information: https:// firefightershop.org/pages/paymentmethods",
       "Currently, currency accepted in our store is USD. Remember to check the exchange rate before completing your purchase.",
     ],
   },

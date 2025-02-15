@@ -1,8 +1,8 @@
 export const infoLinks = [
   { href: "/about", label: "About Us" },
-  { href: "/track", label: "Track Order" },
+  { href: "/pages/tracking-order", label: "Track Order" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/blog", label: "Our Blog" },
+  { href: "/blogs/our-blog", label: "Our Blog" },
 ];
 
 export const policiesLinks = [

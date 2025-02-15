@@ -29,5 +29,5 @@ export const helpLinks = [
   },
 ];
 
-export const contactEmail = "support@trendingcustom.com";
+export const contactEmail = "contact firefightershop.org";
 export const responseTime = "24-48 hours";

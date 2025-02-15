@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import ProductTile from "./product-tile";
 import { Product } from "@/types/products";
-import { products as allProducts } from "@/constants/products";
+import { getProducts } from "@/utils/products";
+import { ProductTile } from "./product-tile";
+
 interface mainProps {
   giftOfCouple?: boolean;
   bestSellersProducts?: boolean;
@@ -12,19 +13,20 @@ export function SectionProducts(props: mainProps) {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    const productList = getProducts(); // Ambil daftar produk dari berkas JSON
+
     const getRandomProducts = (arr: Product[], n: number): Product[] => {
       const shuffled = [...arr].sort(() => 0.5 - Math.random());
       return shuffled.slice(0, n);
     };
 
-    const randomProducts = getRandomProducts(allProducts, 6);
+    const randomProducts = getRandomProducts(productList, 6);
     setProducts(randomProducts);
   }, []);
 
   return (
     <section className="px-12 py-12 md:py-16 lg:py-20">
       <div className="container mx-auto">
-        {/* Header */}
         <div className="mb-8 text-center md:mb-12">
           <h2 className="mb-4 flex items-center justify-center gap-2 text-2xl font-semibold md:text-3xl lg:text-4xl">
             <span role="img" aria-label="gift">
@@ -46,10 +48,9 @@ export function SectionProducts(props: mainProps) {
           </a>
         </div>
 
-        {/* Product Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3 xl:grid-cols-6">
           {products.map((product) => (
-            <ProductTile key={product.id} product={product} />
+            <ProductTile key={product._id} product={product} />
           ))}
         </div>
       </div>

@@ -6,7 +6,7 @@ const ipClaimData = {
     {
       title: "INTELLECTUAL PROPERTY CLAIM",
       content: [
-        "If you believe that TrendingCustom.com has infringed your intellectual property rights, we encourage you to contact us using the procedure outlined below.",
+        "If you believe that  firefightershop.org has infringed your intellectual property rights, we encourage you to contact us using the procedure outlined below.",
       ],
     },
     {

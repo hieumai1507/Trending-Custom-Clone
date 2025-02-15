@@ -37,9 +37,9 @@ export function MainHeader() {
 
           <a href="/" className="flex items-center gap-2 md:ml-0 ">
             <img
-              src="https://trendingcustom.com/cdn/shop/t/57/assets/logo.svg?v=75357380592425913601684321072"
-              alt="Trending Custom Logo"
-              className="h-[27px] md:h-8"
+              src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/479685136_636256915520767_8125932795209894720_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=KlMEPJ7Y6CIQ7kNvgFh1Lmx&_nc_oc=Adh8ls_79XSbhKwl0Wt2dt8gH3hpAFrJBKU4txoTC9IoU63amrQSa1zgcS7Ws3XDiq8&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&oh=03_Q7cD1gFYFIx_UNfGWy9MiYaC3N9VuR6FHhpkJvykHYxg5ZUsww&oe=67D76C0A"
+              alt=" IAN P GREINER LLC Logo"
+              className="h-[27px] md:h-10"
             />
           </a>
 
@@ -86,7 +86,9 @@ export function MainHeader() {
               size="icon"
               className="h-8 w-8 hover:text-[#f13c20]"
             >
-              <Heart className="h-8 w-8 " />
+              <a href="/pages/my-wishlist">
+                <Heart className="h-8 w-8 " />
+              </a>
             </Button>
             <Button
               variant="ghost"

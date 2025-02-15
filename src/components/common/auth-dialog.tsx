@@ -300,7 +300,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
 
           <p className="text-xs text-gray-500">
             By clicking Sign in or Continue with Google, Facebook, you agree to
-            Trendingcustom{" "}
+            IAN P GREINER LLC{" "}
             <a href="/terms" className="underline">
               {COMMON.TERM_OF_USE}
             </a>{" "}
@@ -308,7 +308,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             <a href="/pages/privacy-policy" className="underline">
               {COMMON.PRIVACY_POLICY}
             </a>
-            . Trendingcustom may send you communications; you may change your
+            . IAN P GREINER LLC may send you communications; you may change your
             preferences in your account settings. We'll never post without your
             permission.
           </p>

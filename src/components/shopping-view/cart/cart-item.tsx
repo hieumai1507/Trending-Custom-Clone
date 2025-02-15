@@ -1,3 +1,5 @@
+// cart-item.tsx
+// cart-item.tsx
 "use client";
 
 import { useState } from "react";
@@ -48,8 +50,8 @@ export function CartItem({
         <div className="flex flex-col sm:flex-row gap-6 p-6">
           <div className="relative w-full sm:w-[180px] flex-shrink-0">
             <img
-              src={item.image || "/placeholder.svg"}
-              alt={item.title}
+              src={item.sku_image || "/placeholder.svg"}
+              alt={item.product_name}
               className="w-full aspect-square rounded-lg object-cover"
             />
             <Button
@@ -67,27 +69,20 @@ export function CartItem({
             <div>
               <div className="flex flex-col md:flex-row">
                 <h3 className="text-base font-bold mb-2 max-w-[274px] text-left">
-                  {item.title}
+                  {item.product_name}
                 </h3>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-[#EE3124] text-lg font-semibold">
-                    ${item.currentPrice} USD
+                    ${item.sale_price} USD
                   </span>
                   <span className="text-gray-400 text-sm line-through">
-                    ${item.originalPrice} USD
+                    ${item.original_price} USD
                   </span>
                 </div>
               </div>
-
-              <div className="space-y-2 text-sm">
-                <div className="flex gap-2">
-                  <span className="text-gray-500">Material:</span>
-                  <span>{item.material}</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="text-gray-500">Size:</span>
-                  <span>{item.size}</span>
-                </div>
+              <div className="block text-left">
+                <p className="block text-sm">Size: {item.size}</p>
+                <p className="text-sm">Color: {item.color}</p>
               </div>
             </div>
 
@@ -147,7 +142,7 @@ export function CartItem({
           <div className="flex items-start gap-3 p-4 rounded-lg">
             <Checkbox
               id="shipping-protection"
-              checked={item.shippingProtection}
+              checked={item.shippingProtection || false}
               onCheckedChange={onShippingProtectionChange}
               className="mt-1"
             />
@@ -171,7 +166,7 @@ export function CartItem({
 
           <div className="flex items-center gap-3 p-4 bg-[#f2f2f7] rounded-lg">
             <Checkbox
-              checked={item.giftWrapping}
+              checked={item.giftWrapping || false}
               onCheckedChange={onGiftWrappingChange}
             />
             <div className="flex items-center gap-2 text-sm flex-wrap">
@@ -188,8 +183,8 @@ export function CartItem({
       <PreviewModal
         isOpen={isPreviewOpen}
         onClose={() => setIsPreviewOpen(false)}
-        imageUrl={item.image}
-        title={item.title}
+        imageUrl={item.sku_image}
+        title={item.product_name}
       />
     </>
   );

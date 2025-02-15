@@ -165,10 +165,10 @@ export function ProductTabs({ reviews }: ProductTabsProps) {
           <p>
             We have 24/7/365 ticket and email support. Please contact us at{" "}
             <a
-              href="mailto:support@trendingcustom.com"
+              href="mailto:support@ firefightershop.org"
               className="text-blue-600 hover:underline"
             >
-              support@trendingcustom.com
+              contact@ firefightershop.org
             </a>{" "}
             if you need any assistance.
           </p>

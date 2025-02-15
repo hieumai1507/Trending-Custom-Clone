@@ -1,16 +1,24 @@
+// product-detail.tsx
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Star } from "lucide-react";
 import { ImageGallery } from "./product-detail/image-gallery";
-import { PersonalizationForm } from "./product-detail/personalization-form";
+// import { PersonalizationForm } from "./product-detail/personalization-form";
 import { AddToCart } from "./product-detail/add-to-cart";
-import { ProductTabs } from "./product-detail/product-tabs";
+// import { ProductTabs } from "./product-detail/product-tabs";
 import { addToCart } from "@/store/shop/cart-slice";
-import { products } from "@/constants/products";
+import { getProductById } from "@/utils/products"; // Import getProductById
 import { useToast } from "@/hooks/use-toast";
+import { Product } from "@/types/products";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function ProductDetails() {
   const location = useLocation();
@@ -20,8 +28,9 @@ export function ProductDetails() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("description");
   const { toast } = useToast();
-  const product = products.find((p) => p.id === productId);
-
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [imageGalleryScrollable, setImageGalleryScrollable] = useState(true);
   const [infoScrollable, setInfoScrollable] = useState(true);
   const imageGalleryRef = useRef<HTMLDivElement>(null);
@@ -43,23 +52,55 @@ export function ProductDetails() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Fetch product data based on productId
+    if (productId) {
+      const fetchedProduct = getProductById(productId); // Gọi hàm để lấy sản phẩm dựa vào ID
+      setProduct(fetchedProduct);
+    }
+  }, [productId]);
+
   if (!product) {
     navigate("/products");
     return null;
   }
 
   const handleAddToCart = (quantity: number) => {
-    dispatch(addToCart({ product, quantity }));
+    if (!selectedSize || !selectedColor) {
+      toast({
+        title: "Please select size and color",
+        variant: "destructive",
+      });
+      return;
+    }
+    dispatch(
+      addToCart({
+        product,
+        quantity,
+        size: selectedSize,
+        color: selectedColor,
+      })
+    );
     navigate("/cart");
     toast({
-      title: `${product.name} is added to cart`,
+      title: `${product.product_name} is added to cart`,
     });
   };
+
+  const calculateDiscountPercentage = () => {
+    if (product.original_price && product.sale_price) {
+      const discount = product.original_price - product.sale_price;
+      const discountPercentage = (discount / product.original_price) * 100;
+      return discountPercentage.toFixed(0); // làm tròn về số nguyên gần nhất
+    }
+    return null;
+  };
+
+  const discountPercentage = calculateDiscountPercentage();
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-[1200px] text-left">
       <div className="grid gap-8 lg:grid-cols-2">
-        {/* Left column - Image Gallery */}
         <div className="relative">
           <div
             ref={imageGalleryRef}
@@ -68,61 +109,81 @@ export function ProductDetails() {
             }`}
           >
             <ImageGallery
-              images={product.images.map((url, index) => ({
-                id: index.toString(),
-                url,
-                alt: product.title,
-              }))}
+              images={[
+                {
+                  id: "1",
+                  url: product.sku_image,
+                  alt: product.product_name,
+                },
+              ]}
             />
           </div>
         </div>
 
-        {/* Right column - Product Information */}
         <div ref={infoRef} className={`space-y-6 ${infoScrollable ? "" : ""}`}>
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
-              {product.title}
+              {product.product_name}
             </h1>
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              <div className="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-4 w-4 ${
-                      i < Math.floor(product.rating) ? "fill-current" : ""
-                    }`}
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground text-[#6168ff]">
-                {product.rating} ({product.reviews} reviews)
-              </span>
-            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2"></div>
             <div className="mt-4 flex flex-wrap items-baseline gap-2">
               <span className="text-2xl sm:text-3xl font-bold">
-                ${product.currentPrice}
+                ${product.sale_price}
               </span>
-              <span className="text-lg text-muted-foreground line-through">
-                ${product.originalPrice}
-              </span>
-              <span className="text-red-600 font-semibold">
-                -{product.discount}% OFF
-              </span>
+              {product.sale_price !== product.original_price && (
+                <>
+                  <span className="text-lg text-muted-foreground line-through">
+                    ${product.original_price}
+                  </span>
+                  {discountPercentage && (
+                    <span className="text-red-600 font-semibold">
+                      -{discountPercentage}%
+                    </span>
+                  )}
+                </>
+              )}
             </div>
           </div>
-
-          <PersonalizationForm sizes={product.sizes} />
+          <div className="flex gap-4">
+            <div>
+              <Select onValueChange={setSelectedColor}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Color" />
+                </SelectTrigger>
+                <SelectContent>
+                  {product.colors.map((color) => (
+                    <SelectItem key={color} value={color}>
+                      {color}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Select onValueChange={setSelectedSize}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Size" />
+                </SelectTrigger>
+                <SelectContent>
+                  {product.sizes.map((size) => (
+                    <SelectItem key={size} value={size}>
+                      {size}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          {/* <PersonalizationForm sizes={product.sizes} /> */}
           <AddToCart onAddToCart={handleAddToCart} />
 
-          {/* Desktop Tabs */}
           <div className="hidden sm:block">
-            <ProductTabs
+            {/* <ProductTabs
               description={product.description}
               reviews={{ rating: product.rating, count: product.reviews }}
-            />
+            /> */}
           </div>
 
-          {/* Mobile Accordion */}
           <div className="sm:hidden space-y-4">
             <div>
               <button
@@ -135,7 +196,7 @@ export function ProductDetails() {
                 <span>{activeTab === "description" ? "−" : "+"}</span>
               </button>
               {activeTab === "description" && (
-                <div className="mt-2 px-4">{product.description}</div>
+                <div className="mt-2 px-4">{product.sku_name}</div>
               )}
             </div>
             <div>
@@ -150,19 +211,13 @@ export function ProductDetails() {
               </button>
               {activeTab === "reviews" && (
                 <div className="mt-2 px-4">
-                  <p>
-                    Rating: {product.rating} ({product.reviews} reviews)
-                  </p>
-                  {/* Add more review content here */}
+                  <p>{product.display_status}</p>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="text-sm text-muted-foreground">
-            <p>{product.shippingInfo}</p>
-            <p>{product.satisfactionGuarantee}</p>
-          </div>
+          <div className="text-sm text-muted-foreground"></div>
         </div>
       </div>
     </div>

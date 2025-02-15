@@ -41,7 +41,7 @@ const BottomSection = () => {
               </div>
             </div>
             <div className=" text-center text-sm text-[#828282]">
-              © 2025 <a href="/">TrendingCustom™</a> .{" "}
+              © 2025 <a href="/"> IAN P GREINER LLC LLC</a> .{" "}
               <a
                 href="https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore"
                 target="_blank"

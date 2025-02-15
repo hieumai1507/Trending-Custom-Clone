@@ -3,12 +3,13 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { CartTimer } from "@/components/cart/cart-timer";
-import { CartItem } from "@/components/cart/cart-item";
-import { CartSubtotal } from "@/components/cart/cart-subtotal";
+import { CartTimer } from "@/components/shopping-view/cart/cart-timer";
+import { CartItem } from "@/components/shopping-view/cart/cart-item";
+import { CartSubtotal } from "@/components/shopping-view/cart/cart-subtotal";
 import { removeFromCart, updateQuantity } from "@/store/shop/cart-slice";
 import { RootState } from "@/store/store";
-import { FreeShippingNotice } from "@/components/cart/free-shipping-notice";
+import { FreeShippingNotice } from "@/components/shopping-view/cart/free-shipping-notice";
+import { CartItem as CartItemType } from "@/types/cart"; // Import CartItem type
 
 export function ShoppingCart() {
   const dispatch = useDispatch();
@@ -38,9 +39,19 @@ export function ShoppingCart() {
 
   const calculateSubtotal = () => {
     return items.reduce((total, item) => {
-      let itemTotal = item.currentPrice * item.quantity;
-      if (item.shippingProtection) itemTotal += 2.99;
-      if (item.giftWrapping) itemTotal += 6.99;
+      const salePrice = Number(item.sale_price);
+      const quantity = Number(item.quantity);
+      const shippingProtection = !!item.shippingProtection; // Ensure boolean
+      const giftWrapping = !!item.giftWrapping; // Ensure boolean
+
+      if (isNaN(salePrice) || isNaN(quantity)) {
+        console.error("Invalid salePrice or quantity:", item);
+        return total; // Skip this item
+      }
+
+      let itemTotal = salePrice * quantity;
+      if (shippingProtection) itemTotal += 2.99;
+      if (giftWrapping) itemTotal += 6.99;
       return total + itemTotal;
     }, 0);
   };
@@ -50,6 +61,7 @@ export function ShoppingCart() {
     if (priorityProduction) total += 2.99;
     return total;
   };
+
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll lên đầu trang
   }, []); // [] đảm bảo useEffect chỉ chạy một lần sau khi component mount
@@ -78,19 +90,20 @@ export function ShoppingCart() {
             <div className="lg:col-span-2 space-y-4">
               <CartTimer />
               <FreeShippingNotice remainingAmount={43.01} threshold={70} />
-              {items.map((item) => (
+              {items.map((item: CartItemType) => (
+                // Add type annotation here
                 <CartItem
-                  key={item.id}
+                  key={item._id}
                   item={item}
                   onQuantityChange={(quantity) =>
-                    handleQuantityChange(item.id, quantity)
+                    handleQuantityChange(item._id, quantity)
                   }
-                  onRemoveItem={() => handleRemoveItem(item.id)}
+                  onRemoveItem={() => handleRemoveItem(item._id)}
                   onShippingProtectionChange={(checked) =>
-                    handleShippingProtectionChange(item.id, checked)
+                    handleShippingProtectionChange(item._id, checked)
                   }
                   onGiftWrappingChange={(checked) =>
-                    handleGiftWrappingChange(item.id, checked)
+                    handleGiftWrappingChange(item._id, checked)
                   }
                 />
               ))}

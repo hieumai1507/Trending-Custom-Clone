@@ -1,10 +1,13 @@
-import { Product } from "@/types/product";
+// cart-slice/index.ts
+import { Product } from "@/types/products";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface CartItem extends Product {
   quantity: number;
   shippingProtection?: boolean;
   giftWrapping?: boolean;
+  size: string;
+  color: string;
 }
 
 interface CartState {
@@ -23,24 +26,33 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (
       state,
-      action: PayloadAction<{ product: Product; quantity: number }> //Thay đổi kiểu dữ liệu của action
+      action: PayloadAction<{
+        product: Product;
+        quantity: number;
+        size: string;
+        color: string;
+      }>
     ) => {
       state.isLoading = true; // Bắt đầu loading
 
-      const { product, quantity } = action.payload; //Lấy product và quantity từ action
+      const { product, quantity, size, color } = action.payload; //Lấy product, quantity, size, color từ action
 
-      const existingItem = state.items.find((item) => item.id === product.id);
+      const existingItem = state.items.find(
+        (item) =>
+          item._id === product._id && item.size === size && item.color === color
+      ); //Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+
       if (existingItem) {
         existingItem.quantity += quantity; // Cộng dồn quantity
       } else {
-        state.items.push({ ...product, quantity: quantity }); //Thêm mới sản phẩm với quantity
+        state.items.push({ ...product, quantity, size, color }); //Thêm mới sản phẩm với quantity, size, color
       }
 
       state.isLoading = false; // Kết thúc loading
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
       state.isLoading = true; // Bắt đầu loading
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      state.items = state.items.filter((item) => item._id !== action.payload);
       state.isLoading = false; // Kết thúc loading
     },
     updateQuantity: (
@@ -54,7 +66,7 @@ const cartSlice = createSlice({
     ) => {
       state.isLoading = true; // Bắt đầu loading
 
-      const item = state.items.find((item) => item.id === action.payload.id);
+      const item = state.items.find((item) => item._id === action.payload.id);
       if (item) {
         if (action.payload.quantity !== undefined) {
           item.quantity = action.payload.quantity;

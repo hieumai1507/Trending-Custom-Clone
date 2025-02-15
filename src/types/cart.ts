@@ -1,25 +1,12 @@
+import { Product } from "./products";
+
 // types/cart.ts
-export interface CartItem {
-  id: string;
-  name?: string;
-  title: string;
-  image: string;
-  images?: string[]; // Thêm mảng ảnh chi tiết
-  currentPrice: number;
-  originalPrice: number;
-  discount: number;
-  rating: number;
-  reviews: number;
-  tag?: "Daily Deals" | "Trending Item" | "Best Choice" | "Best Seller";
-  sizes?: { value: string; label: string; isBestseller?: boolean }[];
-  description?: string;
-  shippingInfo?: string;
-  satisfactionGuarantee?: string;
-  shippingProtection?: boolean;
-  giftWrapping?: boolean | undefined;
-  material?: string; // Added material property
-  size?: string; // Added size property
+export interface CartItem extends Product {
   quantity: number;
+  shippingProtection?: boolean;
+  giftWrapping?: boolean;
+  size: string;
+  color: string;
 }
 
 export interface CartSubtotal {
