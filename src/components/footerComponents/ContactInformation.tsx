@@ -16,13 +16,10 @@ const ContactInformation = () => {
         <p>
           <span className="font-semibold">Email 24/7:</span>{" "}
           <a href="mailto:contact@ianpgreiner.com" className="">
-            contact@ianpgreiner.com
+            firefightershop.org
           </a>
         </p>
-        <p className="block">
-          <span className="font-semibold">Phone contact:</span>{" "}
-          <span className="text-[#d0c22]">(+84) 934 502 889</span>
-        </p>
+
         <div>
           <p className="font-semibold">Location: </p>
           <p className="text-[#d0c22]">100 HWY 34 EAST ALBIA IA 52531</p>
