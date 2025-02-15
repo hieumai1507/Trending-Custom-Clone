@@ -30,11 +30,8 @@ export const faqData: FaqItem[] = [
     question: "How long does the shipment take? When will I receive my order?",
     answer: [
       "Orders typically arrive within 10-25 business days from the day orders were placed, depending on factors such as the type of product, production/ shipping time, and any unforeseen circumstances. You can check the estimated shipping and delivery date on the product page:",
-      {
-        imageSrc: "https://i.imgur.com/sKEiFQV.png",
-        imageAlt: "Shipping Information",
-      },
-      "Besides, visit our Shipping Policy to check the estimated production and shipping time for a specific item: https:// firefightershop.org/pages/shipping-policy. We strive to fulfill orders as quickly as possible and provide regular updates on the progress of your shipment.",
+
+      "Besides, visit our Shipping Policy to check the estimated production and shipping time for a specific item: firefightershop.org. We strive to fulfill orders as quickly as possible and provide regular updates on the progress of your shipment.",
       "To get an accurate estimate for your specific order, we recommend visiting our tracking page. Simply go to 'Track order' on  firefightershop.org and enter your order number and email address. You'll be able to view all the details related to your order, including the estimated shipping time.",
       "If you require any further assistance or information, please don't hesitate to contact us. We're here to help!",
     ],
@@ -58,15 +55,9 @@ export const faqData: FaqItem[] = [
           'Click "Track Order" in our website, fill in order number and your email address to track.',
           "Order 2+ items to SAVE 10% using code: TRC10",
         ],
-        imageSrc: "https://i.imgur.com/8n2Upmk.png", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "Order Tracking",
       },
       "Step 2: At the order tracking page, you can modify the design by clicking on 'Edit personalized'. After finishing modification, click 'Save personalization' to update the design.",
       "If you are unable to do it, please click 'Edit order' at the bottom, we will assist you via email.",
-      {
-        imageSrc: "https://i.imgur.com/uUyIAeV.png", //Using a placeholder.  Replace with a more relevant image if available
-        imageAlt: "Edit Personalization",
-      },
     ],
   },
   {
@@ -127,7 +118,7 @@ export const faqData: FaqItem[] = [
           "Apple Pay is currently available, but it is only visible when you use Safari on iPhone, iPad or Mac.",
         ],
       },
-      "You can click on the link below to get more information: https:// firefightershop.org/pages/paymentmethods",
+      "You can click on the link below to get more information: firefightershop.org.",
       "Currently, currency accepted in our store is USD. Remember to check the exchange rate before completing your purchase.",
     ],
   },
