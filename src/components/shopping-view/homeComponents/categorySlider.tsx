@@ -78,7 +78,7 @@ export function CategorySlider() {
                 .replace(" ", "-")}`}
               className="group rounded-lg bg-white  transition-transform hover:scale-105"
             >
-              <div className="aspect-square overflow-hidden rounded-lg">
+              <div className="aspect-square overflow-hidden rounded-lg rounded-bl-none rounded-br-none">
                 <img
                   src={category.image || "/placeholder.svg"}
                   alt={category.title}
@@ -110,7 +110,7 @@ export function CategorySlider() {
                         .replace(" ", "-")}`}
                       className="group block rounded-lg bg-white  transition-transform hover:scale-105"
                     >
-                      <div className="aspect-square overflow-hidden rounded-lg rounded-br-none rounded-bl-none">
+                      <div className="aspect-square overflow-hidden rounded-lg rounded-bl-none rounded-br-none">
                         <img
                           src={category.image || "/placeholder.svg"}
                           alt={category.title}
@@ -166,9 +166,9 @@ export function CategorySlider() {
                       href={`/category/${category.title
                         .toLowerCase()
                         .replace(" ", "-")}`}
-                      className="group block rounded-lg bg-white p-2 transition-transform hover:scale-105"
+                      className="group block rounded-lg bg-white  transition-transform hover:scale-105"
                     >
-                      <div className="aspect-square overflow-hidden rounded-lg">
+                      <div className="aspect-square overflow-hidden rounded-lg rounded-bl-none rounded-br-none">
                         <img
                           src={category.image || "/placeholder.svg"}
                           alt={category.title}

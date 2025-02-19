@@ -26,7 +26,7 @@ export function ProductDetails() {
   const productId = queryParams.get("id");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("description");
+  // const [activeTab, setActiveTab] = useState("description");
   const { toast } = useToast();
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -99,7 +99,7 @@ export function ProductDetails() {
   const discountPercentage = calculateDiscountPercentage();
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-[1200px] text-left">
+    <div className="container mx-auto px-2 md:px-4 md:py-8 max-w-[1200px] text-left">
       <div className="grid gap-8 lg:grid-cols-2">
         <div className="relative">
           <div
@@ -177,14 +177,7 @@ export function ProductDetails() {
           {/* <PersonalizationForm sizes={product.sizes} /> */}
           <AddToCart onAddToCart={handleAddToCart} />
 
-          <div className="hidden sm:block">
-            {/* <ProductTabs
-              description={product.description}
-              reviews={{ rating: product.rating, count: product.reviews }}
-            /> */}
-          </div>
-
-          <div className="sm:hidden space-y-4">
+          {/* <div className=" hidden space-y-4">
             <div>
               <button
                 className="flex justify-between items-center w-full py-2 px-4 bg-gray-100 rounded-lg"
@@ -215,7 +208,7 @@ export function ProductDetails() {
                 </div>
               )}
             </div>
-          </div>
+          </div> */}
 
           <div className="text-sm text-muted-foreground"></div>
         </div>
