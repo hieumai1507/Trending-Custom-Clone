@@ -37,7 +37,7 @@ export function MainHeader() {
 
           <a href="/" className="flex items-center gap-2 md:ml-0 mb-4 relative">
             <div className="absolute inset-0 bg-black bg-cover bg-center opacity-70 rounded-[5px]"></div>
-            <p className="relative text-xl font-bold uppercase tracking-wide text-primary p-2 z-10 text-white ">
+            <p className="relative text-lg font-bold uppercase tracking-wide text-primary p-2 z-10 text-white ">
               fire fighter shop
             </p>
           </a>
