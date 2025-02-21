@@ -35,12 +35,11 @@ export function MainHeader() {
             </Sheet>
           </div>
 
-          <a href="/" className="flex items-center gap-2 md:ml-0 ">
-            <img
-              src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/479685136_636256915520767_8125932795209894720_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=KlMEPJ7Y6CIQ7kNvgFh1Lmx&_nc_oc=Adh8ls_79XSbhKwl0Wt2dt8gH3hpAFrJBKU4txoTC9IoU63amrQSa1zgcS7Ws3XDiq8&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&oh=03_Q7cD1gFYFIx_UNfGWy9MiYaC3N9VuR6FHhpkJvykHYxg5ZUsww&oe=67D76C0A"
-              alt=" IAN P GREINER LLC Logo"
-              className="h-[27px] md:h-10"
-            />
+          <a href="/" className="flex items-center gap-2 md:ml-0 mb-4 relative">
+            <div className="absolute inset-0 bg-black bg-cover bg-center opacity-70 rounded-[5px]"></div>
+            <p className="relative text-xl font-bold uppercase tracking-wide text-primary p-2 z-10 text-white">
+              IAN P GREINER
+            </p>
           </a>
 
           <div className="hidden flex-1 items-center justify-center px-6 md:flex">

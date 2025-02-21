@@ -1,6 +1,5 @@
 import Banner from "@/components/shopping-view/homeComponents/banner";
 import { SectionProducts } from "@/components/shopping-view/homeComponents/SectionProducts";
-import { CategorySlider } from "@/components/shopping-view/homeComponents/categorySlider";
 import FeaturedCategoryList from "@/components/shopping-view/homeComponents/featured-category-list";
 import ReviewCarousel from "@/components/shopping-view/homeComponents/review-carousel";
 import SellingPointSection from "@/components/shopping-view/homeComponents/selling-point-section";
@@ -8,6 +7,7 @@ import ShopCategories from "@/components/shopping-view/homeComponents/shop-categ
 import { MediaLogos } from "@/components/shopping-view/homeComponents/media-logos";
 import { BlogSection } from "@/components/shopping-view/homeComponents/blog-section";
 import { useEffect } from "react";
+import { ProductSlider } from "@/components/shopping-view/homeComponents/product-slider";
 
 export default function ShoppingHome() {
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function ShoppingHome() {
   }, []); // [] đảm bảo useEffect chỉ chạy một lần sau khi component mount
   return (
     <div>
-      <CategorySlider />
+      <ProductSlider />
       <Banner />
       <SectionProducts />
       <FeaturedCategoryList />
